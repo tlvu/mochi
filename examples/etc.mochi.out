@@ -1,0 +1,29 @@
+3
+fa
+200
+faf
+True
+(4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120)
+pvector([2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60])
+12 10
+1200
+pvector([2, 3])
+pvector([2, 3])
+pmap({'a': 3})
+lll
+100
+fafa
+finally
+true
+0.0025186538696289062 5
+afaf
+(2, 4, 6)
+afaf
+(2, 4, 6)
+(2, 3)
+<function _gs126.<locals>.fafa at 0x7fbd67d047b8>
+10000
+3000
+2
+1
+['1 * 3 + (2 + 3)\n', 'x = 1 * 3 + (2 + 3)\n', 'x\n', 'type\n', 'True\n', 'if False:\n', '    z = "aiueo"\n', '    z + "kakiku"\n', 'elif False:\n', '    100000\n', 'elif False:\n', '    200000\n', 'else:\n', '    print "False!"\n', '\n', 'if True:\n', '    w = "aiueo"\n', '    w + "kakiku"\n', 'else:\n', '   "fafa"\n', '\n', ';[]\n', '# The semicolon at the beginning of the line is to avoid to combine "if" with "[]".\n', '[1]\n', '[1, 2]\n', '[w, 2, 3]\n', '\n', 'print([1, 2, 3][2])\n', '\n', 'def f():\n', '    print("f" + "a")\n', '\n', '\n', '(x) -> x\n', '\n', 'ff = (x, y) -> x\n', '\n', 'f()\n', 'print(200)\n', 'ff(1, 2)\n', '1 ^ ff(2) ^ ff(3)\n', '1 |> ff(2) |> ff(3)\n', '{}\n', '{"x" : 3}\n', '{"x" : 3, "y" : 1 + 1}\n', '{"y" + "z" : 3, "y" : 1 + 1}\n', '{x : 3}\n', '#zzz = cases 10:\n', '#    | 10 => print(100000)\n', '#    | _ =>  "else!"\n', '#\n', '#zzz\n', '\n', 'fff = match [1, 2, 3]:\n', '    [1, 2, 3]: True\n', '\n', 'print("faf")\n', 'print(fff)\n', '\n', 'match {"x": [1, 2, 3]}:\n', '    {"x": [1, _, y]}: y\n', '\n', '#case {"x": (1, 2, 3)}\n', '#    {"x": 100}\n', '#    {"x": z} :\n', '\n', '# xyz = if True: 0 else: 100\n', '\n', '# xyz\n', '\n', '[z1, &z2] = [1, 2, 3, 4, 5]\n', 'z2\n', '\n', 'get(z2, 0, 2)\n', '\n', '[item * 2 for item in range(1, 31)] |> map(-> $1 * 2) |> tuple() |> print()\n', '[item * 2 for item in range(1, 31)] |> print()\n', '\n', '"faf".__str__()\n', 'if 21 + -20 == 1 and True:\n', '    zz = (-> $1 + $2)(100, 200)\n', 'else:\n', '    zz2 = (-> $1 + $2)(100, 20)\n', '\n', '1 + 1\n', '3 + 2\n', '\n', 'print(str(1) + str(2), 10)\n', '\n', 'tuple(map(-> $1 + 10 if True else $1 + 20, [1, 2, 3]))\n', '\n', 'match ["faa", 200]:\n', '    ["aaa", xx]: print(xx + 200)\n', '    ["faa", xxx]: print(xxx + 1000)\n', '\n', 'def fr(x, y):\n', '    [x + 1, y()]\n', '\n', 'fr2 = flip(fr)\n', 'print(fr2(-> 1 + 2, 1))\n', 'print(fr(1, -> 1 + 2))\n', '\n', '\n', '#record Node(x, y)\n', '\n', '#r = Node(10, 20)\n', '#case r:\n', '#    Node(x, 20) => x\n', '\n', '#record Node2(value, left, right)\n', '\n', 'data BinTree:\n', '    Leaf(value)\n', '    Node(value, left, right)\n', '\n', 'Leaf(20)\n', 'Node(1, 2, 3)\n', 'Node(1, 2, 3)\n', 'Node(10, 15, 40)\n', 'Node(20, 100, Leaf(40))\n', '\n', '\n', 'import flask\n', 'from PIL import Image\n', '\n', 'module fafa:\n', '    export a, b, lll\n', '    a = 100\n', '    b = {"a" : 3}\n', '    c = 300\n', '    def lll():\n', '        print("lll")\n', '\n', 'print(fafa.b)\n', '\n', 'fafa.lll()\n', '\n', 'import flask\n', '\n', 'def xxxx():\n', '    try:\n', '        print(100)\n', '        raise Exception("fafa")\n', '    except Exception as e:\n', '        print(e)\n', '    except Exception as b:\n', '        print(b)\n', '    finally:\n', '        print("finally")\n', '\n', 'xxxx()\n', 'if True:\n', '    print("true")\n', 'else:\n', '    print("fafa")\n', '\n', '\n', 'from time import time\n', '\n', '#def tak(x, y, z):\n', '#    if x <= y:\n', '#        z\n', '#    else:\n', '#        tak(tak(x - 1, y, z), tak(y - 1, z, x), tak(z - 1, x, y))\n', '\n', 'def tak(x, y, z):\n', '    if x <= y:\n', '        return z\n', '    else:\n', '        return tak(tak(x - 1, y, z), tak(y - 1, z, x), tak(z - 1, x, y))\n', '\n', 'start = time()\n', 'res = tak(10, 5, 0)\n', 'print(time() - start, res)\n', '\n', 'map(-> $1 * 2, [1, 2, 3])\n', 'print("afaf")\n', 'print(tuple(map(-> $1 * 2, [1, 2, 3])))\n', 'print("afaf")\n', 'map((item) -> item * 2, [1, 2, 3]) |> tuple() |> print()\n', '\n', '#fffff = x, y -> print(x, y)\n', '#fffff(10, 20)\n', '#print([int(1), 2, "a" + "b"], [2, 4, 6])\n', '\n', '\n', 'def vagrgs(a, &rest):\n', '    print(rest)\n', '\n', 'vagrgs(1, 2, 3)\n', '\n', 'require "etc_inner.mochi"\n', '\n', 'print(TestB.fafa)\n', 'TestB.fafa()\n', '\n', 'def fafa():\n', '    x = 3000\n', '    x\n', '\n', 'print(fafa())\n', '\n', 'def print_mochi_py:\n', '    0:\n', "        with open('./etc.mochi', 'r') as f:\n", '            print(f.readlines())\n', '    n:\n', "        with open('./etc.mochi', 'r') as f:\n", '            f.readlines()\n', '            print(n)\n', '            print_mochi_py(n - 1)\n', '\n', 'print_mochi_py(2)']

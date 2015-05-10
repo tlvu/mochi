@@ -1,0 +1,39 @@
+<class '__main__.Message'>
+__main__
+foo
+actor1 (<eventlet.greenthread.GreenThread object at 0x7f3204f5faf8>,)
+bar 2000
+foo 1000
+foo 1000
+bar 2000
+Message! mefafsg pvector(['value'])
+remote! pvector([pvector([3000])])
+remo Message(tag=3000, value=1000)
+Unsupported message! pmap({'x': pvector([1, 2, 3])})
+Unsupported message! pset([1, pvector([2, 1, 2, 3])])
+Unsupported message! pbag([1, pvector([2, 1, 2, 3])])
+aaa
+^CTraceback (most recent call last):
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/bin/mochi", line 9, in <module>
+    load_entry_point('mochi==0.2.4.2', 'console_scripts', 'mochi')()
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/mochi/core/main.py", line 225, in main
+    load_file(args.file, global_env)
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/mochi/core/main.py", line 50, in load_file
+    return exec(compile_file(path), env)
+  File "examples/actor_example.mochi", line 63, in <module>
+    wait_all()
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/mochi/actor/actor.py", line 262, in wait_all
+    _actor_pool.waitall()
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/eventlet/greenpool.py", line 120, in waitall
+    self.no_coros_running.wait()
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/eventlet/event.py", line 121, in wait
+    return hubs.get_hub().switch()
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/eventlet/hubs/hub.py", line 294, in switch
+    return self.greenlet.switch()
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/eventlet/hubs/hub.py", line 346, in run
+    self.wait(sleep_time)
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/eventlet/hubs/poll.py", line 85, in wait
+    presult = self.do_poll(seconds)
+  File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/eventlet/hubs/epolls.py", line 62, in do_poll
+    return self.poll.poll(seconds)
+KeyboardInterrupt
