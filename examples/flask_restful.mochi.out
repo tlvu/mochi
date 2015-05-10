@@ -3,11 +3,10 @@ Traceback (most recent call last):
     load_file(args.file, global_env)
   File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/mochi/core/main.py", line 50, in load_file
     return exec(compile_file(path), env)
-  File "examples/flask_restful.mochi", line 0, in <module>
+  File "flask_restful.mochi", line 0, in <module>
   File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/flask/exthook.py", line 81, in load_module
     reraise(exc_type, exc_value, tb.tb_next)
   File "/home/mochiuser/.pyenv/versions/venv343mochi/lib/python3.4/site-packages/flask/_compat.py", line 32, in reraise
     raise value.with_traceback(tb)
   File "/home/mochiuser/workdir/examples/flask_restful.mochi", line 7, in <module>
-    api = Api(app)
 ImportError: cannot import name 'Resource'

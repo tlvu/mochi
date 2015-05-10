@@ -1,0 +1,112 @@
+#!/bin/sh
+# Test whether example output changed (regression introduced).
+#
+# This script uses by default mochidocker wrapper to have a 100% reproducible
+# run-time environment.  This can be overriden to use a real mochi command
+# (instead of the Docker wrapper).  The ability to override the mochi command
+# can also be used to force a different Docker image by using --dockerimg with
+# mochidocker.
+#
+# The test performed is really stupid and simple right now: if the new .out
+# file is different than the committed one, we conclude the test failed
+# (assuming some code change has introduced a regression, which changed the
+# .out file content).
+#
+# If we modify the example file, we have to rebuild/regenerate the matching
+# .out file.
+
+CURRENT_DIR="`pwd`"
+cd "`dirname "$0"`"
+THIS_DIR="`pwd`"
+THIS_FILE="`basename "$0"`"
+cd ..
+MOCHI_CHECKOUT_ROOT="`pwd`"
+cd "$CURRENT_DIR"
+
+
+# these examples do not terminate on their own
+EXCLUDE_LIST="
+actor_example.mochi
+flask_demo.mochi
+"
+
+# --dockerdevel to use code in current checkout, not old code in the docker
+# image
+DEFAULT_MOCHI_CMD="../bin/mochidocker --dockerdevel"
+
+
+showusage() {
+  echo "Usage: $THIS_FILE [options]
+
+
+Ex:
+Test all examples
+  \$ $THIS_FILE
+
+Test all exaples using a different mochi command than the default one
+  \$ $THIS_FILE --mochicmd \"path/to/mochi\"
+
+Rebuild all the .out files
+  \$ $THIS_FILE --rebuild
+
+
+Options:
+  --mochicmd cmd    Alternate mochi command, default: $DEFAULT_MOCHI_CMD
+  --rebuild         Rebuild all the .out files
+  --help            Show this help
+"
+}
+
+
+MOCHI_CMD="$DEFAULT_MOCHI_CMD"
+REBUILD_MODE=""
+while [ -n "$1" ]; do
+  case "$1" in
+    --mochicmd) shift
+      MOCHI_CMD="$1"; shift
+      ;;
+    --rebuild) shift
+      REBUILD_MODE=1
+      ;;
+    --help) shift
+      showusage
+      exit
+      ;;
+    *)
+      showusage
+      echo "ERROR: invalid option '$1'" 1>&2
+      exit 2
+      ;;
+  esac
+done
+
+
+TMPDIR="`mktemp -d`"
+EXIT_CODE=0
+
+cd "$THIS_DIR"
+for f in *.mochi; do
+  if [ -z "`echo "$EXCLUDE_LIST" | grep $f`" ]; then
+    OUT_FILE="${f}.out"
+    if [ -n "$REBUILD_MODE" ]; then
+      echo "Rebuilding $OUT_FILE"
+      $MOCHI_CMD "$f" >& "$OUT_FILE"
+      if [ $? -ne 0 ]; then
+        echo "ERROR: $OUT_FILE rebuild failed"
+        # set EXIT_CODE to failed as soon as one example rebuild failed
+        EXIT_CODE=1
+      fi
+    else
+      $MOCHI_CMD "$f" >& "$TMPDIR/$OUT_FILE"
+      diff "$OUT_FILE" "$TMPDIR/$OUT_FILE"
+      if [ $? -ne 0 ]; then
+        echo "ERROR: $f changed"
+        # set EXIT_CODE to failed as soon as one example output changed
+        EXIT_CODE=1
+      fi
+    fi
+  fi
+done
+
+rm -rf "$TMPDIR"
+exit $EXIT_CODE
